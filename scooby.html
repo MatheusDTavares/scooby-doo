@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>1.Quão corajoso você se classificação? (0 a 10)</span>
+    <input type="text" id="ipt_coragem"><br>
+    <span>2.Quão inteligente você se classificação? (0 a 10)</span>
+    <input type="text" id="ipt_inteligente"><br>
+    <span>3.Quão curioso você se classificação? (0 a 10)</span>
+    <input type="text" id="ipt_curioso"><br>
+    <span>4.Quão faminto você se classificação? (0 a 10)</span>
+    <input type="text"id="ipt_fome"><br>
+    
+    <button onclick="Analisar()">Qual personagem eu sou?</button>
+    <div id="output"></div>
+    <script>
+        function Analisar(){
+
+            let coragem = Number(ipt_coragem.value);
+            let inteligente = Number(ipt_inteligente.value);
+            let curioso = Number(ipt_curioso.value);
+            let fome = Number(ipt_fome.value);
+            
+            if (coragem > 7 && inteligente > 7 && fome < 5 && curioso < 6) {
+                // Fred
+            } else if (fome > 7 && fome > 7 && curioso < 7 && inteligente <= 5) {
+                // Scooby
+            } else if (inteligente > 7 && coragem <= 7 && curioso > 5 && fome < 5) {
+                // 
+            }
+            
+            
+            if(coragem == inteligente && fome == curioso){
+                if ((coragem + inteligente) > (fome + curioso)) {
+                    output.innerHTML = `Você é o FRED`
+                } else if ((fome + curioso) > (coragem + inteligente)) {
+                    output.innerHTML = `Você é o SALSICHA ou o SCOOBY-DOO`
+                }
+            }
+            if(coragem > curioso && coragem > inteligente && coragem > fome){
+                console.log("passei por aqui if1");
+                
+                if(inteligente > curioso && inteligente > fome){
+                    console.log("passei por aqui if1");
+                    output.innerHTML = `Você é o FRED`
+                }
+                else if(curioso > inteligente && curioso > fome){
+                    output.innerHTML = `Você é a DAPHNE`
+                }
+                    
+        }
+        else if (inteligente > curioso && inteligente > coragem && inteligente > fome ){
+            output.innerHTML = `Você é a VELMA`
+        }
+        else if(fome > curioso && fome > inteligente && fome > coragem){
+            output.innerHTML = `Você é o SALSICHA ou o SCOOBY-DOO`
+        }
+    
+        }
+    </script>
+
+</body>
+</html>
