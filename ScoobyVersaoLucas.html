@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Scooby Doo</title>
+</head>
+<body id="corpoPagina">
+    <div style="background-color: white; width: 50%; border-radius: 10px; padding: 10px;">
+        <div>
+            <h3>Quem você seria do Scooby Doo?</h3>
+        </div>
+
+        <div>
+            <span>Quão corajoso você é? (0 a 10)</span>
+            <input type="text" id="ipt_coragem">
+            <br>
+        </div>
+
+        <div>
+            <span>Quão curioso você é? (0 a 10)</span>
+            <input type="text" id="ipt_curioso">
+            <br>
+        </div>
+
+        <div>
+            <span>Quão inteligente você é? (0 a 10)</span>
+            <input type="text" id="ipt_inteligente">
+            <br>
+        </div>
+
+        <div>
+            <span>Quão elegante você é? (0 a 10)</span>
+            <input type="text" id="ipt_elegante">
+            <br>
+        </div>
+
+        <div>
+            <span>Quão faminto você é? (0 a 10)</span>
+            <input type="text" id="ipt_fome">
+            <br>
+        </div>
+
+        <div>
+            <button onclick="analisar()">Ver quem eu sou</button>
+            <br>
+        </div>
+    </div>
+
+    <div id="id_mensagem"></div>
+
+    <gif src="https://tenor.com/qmYRF6hXODw.gif" alt="aaaaa">
+</body>
+    <script>
+        function analisar() {
+            let coragem = Number(ipt_coragem.value);
+            let inteligente = Number(ipt_inteligente.value);
+            let elegante = Number(ipt_elegante.value);
+            let curioso = Number(ipt_curioso.value);
+            let fome = Number(ipt_fome.value);
+
+            let personagem;
+            let linkImg;
+
+            if (coragem >= 8 && inteligente > 6 && curioso <= 6 && fome < 6 && elegante < 7) {
+                // FRED
+                personagem = 'Fred'
+                corpoPagina.style.backgroundColor = 'blue';
+                linkImg = 'https://cdn.hanna-barberawiki.com/thumb/4/47/Fred_Jones.png/800px-Fred_Jones.png';
+
+            } else if (inteligente > 7 && curioso > 6 && elegante <= 5 && fome <= 4 && coragem <= 6) {
+                // VELMA
+                personagem = 'Velma'
+                corpoPagina.style.backgroundColor = 'orange';
+                linkImg = 'https://www.estadao.com.br/resizer/v2/BWWV5B6KSRNM5OPMY7ZBMJ2EWM.jpg?quality=80&auth=fbdf3e3bea49d4a4bf23c98415c24100b7adaf8cb1476d0f095e8e6ea8ae5fb8&width=380';
+                
+            } else if (elegante > 7 && coragem > 6 && curioso >= 7 && fome <=4 && inteligente <= 6) {
+                // Daphine
+                personagem = 'Daphine'
+                corpoPagina.style.backgroundColor = 'purple';
+                linkImg = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz9-w_UtjmIcE3BEYAUoEHhZqMDAvYgM6H1BrBFuJC9fz9HrqlW8bVzVByx5BnSKxxBe7ofDwJ7RMC4IAdfgn8hN_mwKESTeEMiWvBdhGjtkKxGgmTwH2IhwrYoWI_17DoGqnjdFtZegdZ/w1200-h630-p-k-no-nu/Daphne+Scooby+Doo+Vector+1-500x500.jpg'
+
+
+            } else if (fome > 7 && elegante <= 5 && curioso >= 6 && inteligente < 6 && coragem < 5) {
+                // Salsicha e Scooby
+                personagem = 'Salsicha e Scooby'
+                corpoPagina.style.backgroundColor = 'green';
+                linkImg = 'https://recreio.com.br/wp-content/uploads/animacoes/salsicha-e-scooby-doo.jpg';
+
+            } else if (elegante > fome &&  elegante > curioso && elegante >= inteligente && elegante >= coragem) {
+                // Daphine
+                personagem = 'Daphine'
+                corpoPagina.style.backgroundColor = 'purple';
+                linkImg = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz9-w_UtjmIcE3BEYAUoEHhZqMDAvYgM6H1BrBFuJC9fz9HrqlW8bVzVByx5BnSKxxBe7ofDwJ7RMC4IAdfgn8hN_mwKESTeEMiWvBdhGjtkKxGgmTwH2IhwrYoWI_17DoGqnjdFtZegdZ/w1200-h630-p-k-no-nu/Daphne+Scooby+Doo+Vector+1-500x500.jpg'
+
+            } else if (coragem >= inteligente &&  coragem > fome && coragem > curioso && coragem >= elegante) {
+                // FRED
+                personagem = 'Fred'
+                corpoPagina.style.backgroundColor = 'blue';
+                linkImg = 'https://cdn.hanna-barberawiki.com/thumb/4/47/Fred_Jones.png/800px-Fred_Jones.png';
+
+            } else if (fome > coragem &&  fome > elegante && fome >= curioso && fome > inteligente) {
+                // Salsicha Scooby
+                personagem = 'Salsicha e Scooby'
+                corpoPagina.style.backgroundColor = 'green';
+                linkImg = 'https://recreio.com.br/wp-content/uploads/animacoes/salsicha-e-scooby-doo.jpg';
+
+            } else if (inteligente > coragem &&  inteligente > elegante && inteligente >= curioso && inteligente > fome) {
+                // velma
+                personagem = 'Velma'
+                corpoPagina.style.backgroundColor = 'orange';
+                linkImg = 'https://www.estadao.com.br/resizer/v2/BWWV5B6KSRNM5OPMY7ZBMJ2EWM.jpg?quality=80&auth=fbdf3e3bea49d4a4bf23c98415c24100b7adaf8cb1476d0f095e8e6ea8ae5fb8&width=380';
+            } else {
+                personagem = 'Monstro'
+                corpoPagina.style.backgroundColor = 'brown';
+                linkImg = 'https://i.pinimg.com/originals/f1/a5/2a/f1a52ab264048c75a34c588e87e95bdb.jpg';
+            }
+
+            id_mensagem.innerHTML = `<h3>Você é o ${personagem}</h3> <br>
+                                    <img src='${linkImg}' style="width: 50%">`;
+        }
+    </script>
+</html>
