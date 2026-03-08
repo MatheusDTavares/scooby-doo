@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste De Personalidade</title>
+</head>
+<style>
+    .button {
+        background-color: transparent;
+        border: 2px solid black;
+        color: black;
+        padding: 16px 32px;
+        text-align: center;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+    }
+
+    .button:hover {
+        background-color: black;
+        color: white;
+    }
+
+    .input {
+        background-color: transparent;
+        border: 2px solid black;
+        color: auto;
+        field-sizing: content;
+        min-width: 100px;
+        max-width: 100px;
+    }
+</style>
+
+<body class="TelaFundo" id="id_TelaFundo">
+    <div id="MeninasSuperPoderosasQuiz" style="display: inline;">
+        <h1 style="text-align: center;">Quem é Você Das Meninas Super Poderosas?</h1>
+        <div style="text-align: center;">
+
+            <label for="id_inteligencia">Digite um valor para sua inteligência: </label>
+            <input type="number" class="input" id="id_inteligencia" min="0" max="10" placeholder="inteligência"><br>
+
+            <label for="id_coragem">Digite um valor para sua Coragem: </label>
+            <input type="number" class="input" id="id_coragem" min="0" max="10" placeholder="coragem"><br>
+
+            <label for="id_sensibilidade">Digite um valor para sua Sensibilidade: </label>
+            <input type="number" class="input" id="id_sensibilidade" min="0" max="10" placeholder="sensibilidade"><br>
+
+            <label for="id_temperamento">Digite um valor para seu Temperamento: </label>
+            <input type="number" class="input" id="id_temperamento" min="0" max="10" placeholder="temperamento"><br>
+
+            <button onclick="MSPVerificar()" style="text-align: center;" class="button">Quem Sou?</button>
+            <div id="div_resultado"></div>
+        </div>
+    </div>
+    <div id="ScoobyDooQuiz" style="display: none; text-align: center;">
+
+        <div><img
+                src="https://s2-techtudo.glbimg.com/fP2aQOwxZLLuHd4_ngRTmHROWrc=/400x0/smart/filters:strip_icc()/s.glbimg.com/po/tt2/f/original/2014/09/11/e23064f4012d025a12313b075c91.jpeg">
+        </div>
+        <style>
+            img {
+                width: 600px;
+                height: 400px;
+            }
+        </style>
+        <div style="text-align: center;">
+
+            <span>1.Quão corajoso você se classifica? (0 a 10)</span>
+            <input type="number" id="ipt_coragem" min="0" max="10" placeholder="coragem" class="input"><br>
+            <span>2.Quão inteligente você se classifica? (0 a 10)</span>
+            <input type="number" id="ipt_inteligente" min="0" max="10" placeholder="inteligencia" class="input"><br>
+            <span>3.Quão curioso você se classifica? (0 a 10)</span>
+            <input type="number" id="ipt_curioso" min="0" max="10" placeholder="curiosidade" class="input"><br>
+            <span>4.Quão faminto você se classifica? (0 a 10)</span>
+            <input type="number" id="ipt_fome" min="0" max="10" placeholder="faminto" class="input"><br>
+
+            <button onclick="Analisar()" class="button" style="text-align: center">Qual personagem eu sou?</button>
+        </div>
+        <div id="output" style="text-align: center;"></div>
+    </div>
+    </div>
+
+    <div style="text-align:center;">
+        <button onclick="Alterar()" class="button">Alterar Quiz</button>
+    </div>
+
+</body>
+
+<script>
+    document.getElementById("id_TelaFundo")
+    function MSPVerificar() {
+        id_TelaFundo.style.backgroundColor = "auto";
+        id_TelaFundo.style.color = "auto";
+        let int = Number(id_inteligencia.value);
+        let cor = Number(id_coragem.value);
+        let sen = Number(id_sensibilidade.value);
+        let tem = Number(id_temperamento.value);
+
+        if ((int >= 8 && cor >= 7 && tem <= 6) || (int > sen)) {
+            id_TelaFundo.style.backgroundColor = "pink";
+            id_TelaFundo.style.color = "red";
+            div_resultado.innerHTML = `<h3>Você é a Florzinha!!!</h3> <img src="https://media.tenor.com/W20AikH-VmgAAAAM/daddy-daddys-girl.gif" alt="Gif da Florzinha de Meninas SuperPoderosas" >`
+        }
+        else if ((sen >= 8 && tem <= 5) || (sen > int)) {
+            id_TelaFundo.style.backgroundColor = "lightblue";
+            id_TelaFundo.style.color = "blue";
+            div_resultado.innerHTML = `<h3>Você é a Lindinha!!!</h3> <img src="https://media.tenor.com/mV-fKDVHm8UAAAAM/bubbles-hello.gif" alt="Gif da Lindinha de Meninas SuperPoderosas" >`
+        }
+        else if ((cor >= 8 && tem >= 7)) {
+            id_TelaFundo.style.backgroundColor = "lightgreen";
+            id_TelaFundo.style.color = "green";
+            div_resultado.innerHTML = `<h3>Você é a Docinho!!!</h3> <img src="https://media1.tenor.com/m/QEQjHLkAXhwAAAAC/enojada-bellota.gif" alt="Gif da Docinho de Meninas SuperPoderosas" >`
+        }
+        else {
+            id_TelaFundo.style.backgroundColor = "lightgreen";
+            id_TelaFundo.style.color = "green";
+            div_resultado.innerHTML = `<h3>Você é a Docinho!!!</h3> <img src="https://media1.tenor.com/m/QEQjHLkAXhwAAAAC/enojada-bellota.gif" alt="Gif da Docinho de Meninas SuperPoderosas" >`
+        }
+    }
+
+    function Alterar() {
+        id_TelaFundo.style.backgroundColor = "auto";
+        id_TelaFundo.style.color = "auto";
+        if (MeninasSuperPoderosasQuiz.style.display == "none") {
+            MeninasSuperPoderosasQuiz.style.display = "inline";
+            ScoobyDooQuiz.style.display = "none";
+        } else {
+            MeninasSuperPoderosasQuiz.style.display = "none";
+            ScoobyDooQuiz.style.display = "inline";
+        }
+    }
+
+    function Analisar() {
+
+        let coragem = Number(ipt_coragem.value);
+        let inteligente = Number(ipt_inteligente.value);
+        let curioso = Number(ipt_curioso.value);
+        let fome = Number(ipt_fome.value);
+
+        if (coragem > inteligente && coragem > fome && coragem > curioso) {
+            // Fred
+            id_TelaFundo.style.backgroundColor = "darkBlue";
+            id_TelaFundo.style.color = "white";
+            output.innerHTML = `<h2>Você é o FRED</h2>`
+            output.innerHTML += `<img src=https://media.tenor.com/odQ1IVmkaT4AAAAM/scooby-doo-fred.gif>`
+        } else if (fome > inteligente && fome > curioso && fome > coragem) {
+            // Scooby
+            id_TelaFundo.style.backgroundColor = "brown";
+            id_TelaFundo.style.color = "white";
+            output.innerHTML = `<h2>Você é o SALSICHA ou o SCOOBY-DOO</h2>`
+            output.innerHTML += `<img src=https://i.pinimg.com/originals/67/84/ba/6784ba43e084d8bf643f382762b7bab4.gif>`
+        } else if (inteligente > coragem && inteligente > curioso && inteligente > fome) {
+            // Velma 
+            id_TelaFundo.style.backgroundColor = "lightYellow";
+            id_TelaFundo.style.color = "black";
+            output.innerHTML = `<h2>Você é a VELMA</h2>`
+            output.innerHTML += `<img src=https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyb3Mzczg0ODg4M3lhMGo1eGN2Y3ZvZDV5bDdzdHY1MWNmN3FyczI4dyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/2tNwXp92oWC0z6FDqI/source.gif>`
+        } else if (curioso > inteligente && curioso > fome && curioso > coragem) {
+            // Daphne
+            id_TelaFundo.style.backgroundColor = "purple";
+            id_TelaFundo.style.color = "White";
+            output.innerHTML = `<h2>Você é a DAPHNE</h2>`
+            output.innerHTML += `<img src=https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3ff01d2e-4427-40ab-91bb-dc9fe7f1506d/dficvu3-6fd1f4ca-1bfd-4f54-8c0d-074625bcf74b.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8zZmYwMWQyZS00NDI3LTQwYWItOTFiYi1kYzlmZTdmMTUwNmQvZGZpY3Z1My02ZmQxZjRjYS0xYmZkLTRmNTQtOGMwZC0wNzQ2MjViY2Y3NGIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.EncJw30juUV_1v-6Iehpq9nWXFf-a3G2uQc5Vru6cG4>`
+        }
+
+
+        if (coragem == inteligente && inteligente == curioso && curioso == fome) {
+            id_TelaFundo.style.backgroundColor = "lightBlue";
+            id_TelaFundo.style.color = "yellow";
+            output.innerHTML = `<h2>Você é a Kombi</h2>`
+            output.innerHTML += `<img src= https://i.pinimg.com/originals/39/e5/a8/39e5a88c18c9b24f9038025c427cf0d4.gif>`
+        }
+    }
+</script>
+
+</html>
